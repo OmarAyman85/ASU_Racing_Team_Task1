@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol>
+        <h1>Task 1</h1>
+        <li>Create two new components (manually or with CLI): WarningAlert and SuccessAlert</li>
+        <li>Output them beneath each other in the AppComponent</li>
+        <li>Output a warning or success message in the Components</li>
+        <li>Style the Components appropriately (maybe some red/ green text?)</li>
+      </ol>
+      <p>Use external or internal templates and styles!</p>
+      <p>Feel free to create more components, nest them into each other or play around with different types of selectors!</p>
+      <hr>
+      <warning-alert></warning-alert>
+      <success-alert></success-alert>
+      <hr>
+      <hr>
+      <hr>
+      <hr>
+      <hr>
+      <ol>
+        <h1>Task 2</h1>
+        <li>Add a Input which updates a property ('username') via Two-Way-Binding</li>
+        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
+        <li>Add a button which may only be clicked if the username is not an empty string</li>
+        <li>Upon clicking the button, the username should be reset to empty string</li>
+      </ol>
+      <hr>
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="username">
+      <button [disabled]="username === ''" (click)="username = ''">Reset</button>
+      <p>{{ username }}</p>
+      <hr>
+      <hr>
+      <hr>
+      <hr>
+      <hr>
+      <ol>
+        <h1>Task 3</h1>
+        <li>Add a button which says 'Display Details'</li>
+        <li>Add a paragraph with an content of your choice. (e.g. 'Secret password = tuna'</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simple an incrementing number</li>
+        <li>Starting at the 5th log item, give all future log items a blue nackground (via ngStyle) and white color (ngClass)</li>
+      </ol>
+      <hr>
+      <button (click)="onToggleDetails()">Display Details</button>
+      <p *ngIf="display">This tasks were performed by Omar Ayman Hassan</p>
+      <div *ngFor="let logItem of log" 
+      [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+      [ngClass]="{'WhiteText' : logItem>= 5}">{{ logItem }}
+      </div>
+    </div>
+  </div>
+</div>
